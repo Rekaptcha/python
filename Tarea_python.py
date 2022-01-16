@@ -215,12 +215,24 @@ print(tabla_pre)
 """E.2. Carga del dataframe, codificano rangos de edad y lesividad """
 ##Modificando la lectura del dataframe para que los rangos de edad se conviertan en el intervalo correspondiente, que en el apartado de lesividad (cuyos campos en blanco se han traducido a NaN (Not A Number9 se ponga como entero tal que: 1 cuando hay lesividad y 0 cuando no se conoce la lesividad o no hay lesividad (casos codificados con un 0, un 77, un 14).
 
-def cargar_dataframe(archivo):
-	import pandas
-	dataframe = pandas.read_csv(archivo)  
-	return dataframe
 	  
 """E.3. Tabla de número de accidentes por rangos de edad """
+##Devolver una tabla con dos columnas (rango edad y nº de accidentes), formando una tabla nueva. En orden ascendente de rango de edad.
+
+def extraer_columnas(dataframe):
+          dataframe_2col = dataframe[['RANGO DE EDAD', 'LESIVIDAD']]
+	  dataframe_ordenado = dataframe_2col.sort_values(by='RANGO DE EDAD', ascending=True)
+	  return dataframe_ordenado
+
+tabla_accidentalidad= cargar_dataframe("2020_Accidentalidad.csv")
+accidentalidad_v2 = extraer_columnas(tabla_accidentalidad)
+print(accidentalidad_v2 = extraer_columnas(tabla_accidentalidad))
+	  
+	  
+#Descartar el rango de edad (-1, -1) que no interesa. Descartar esa fila.
+
+def
+
 """E.4. Accidentes con consecuencias médicas """
 """E.5. Unión de dos tablas """
 """E.6. Proporción de accidentes con lesiones """

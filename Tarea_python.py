@@ -203,6 +203,15 @@ representar_xxx_yyy([])
 #   --------------------------------------------------------------------------------------------------------          
 """E. OPERACIONES CON DATAFRAMES """ 
 """E.1. Carga del dataframe """
+def cargar_dataframe_v0(archivo):
+	import pandas
+	dataframe = pandas.read_csv(archivo)  
+	return dataframe
+	  
+#Prueba de funcionamiento:
+tabla_pre = cargar_dataframe_v0("2020_Accidentalidad.csv")
+print(tabla_pre)
+	  
 """E.2. Carga del dataframe, codificano rangos de edad y lesividad """
 """E.3. Tabla de número de accidentes por rangos de edad """
 """E.4. Accidentes con consecuencias médicas """

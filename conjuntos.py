@@ -1,4 +1,4 @@
-### CONJUNTOS en PYTHON ###
+### CONJUNTOS en PYTHON ### COMPLETO
 
 """ ---- --- -- CONJUNTOS -- --- ----"""
 """ Un conjunto es una colección de elementos sin orden ni repetición. Las operaciones básicas de conjuntos permiten crear un conjunto, calcular la unión, la intersección, la diferencia y la diferencia simétrica """

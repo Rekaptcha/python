@@ -34,7 +34,7 @@ for c in ['DE 25 A 29 AÑOS', 'DESCONOCIDA', 'MAYOR DE 74 AÑOS']:
 #Los datos de lesividad están codificados con un número, deseamos convertirlo en un entero. Si no se requiere asistencia sanitaria, un 0. Si la lesividad no se conoce (faltan datos) también un 0.
 def lesividad(c):
 	if bool(c): #Comprobamos que la variable no está vacía, para que no falle cuando haga la conversión a int
-    	d = int(c) #Hacemos el casteo del valor a int
+    		d = int(c) #Hacemos el casteo del valor a int
 		if d >=1 and d <=77:
 			return(d)
 	else:
@@ -181,14 +181,14 @@ for k, e in total_accidentes_por_edades.items()
 ##Diseñar un modelo de gráfica que tome como parámetro una lista de pares (x,y) y 3 rótulos explicativos opcionales que necesitamos incluir. Y que las etiquetas de las abcisas aprezcan inclinadas.
 
 def representar_xxx_yyy (x, y, rotulox, rotuloy, titulo):
-import matplotlib.pyplot as plt
-plt.xlabel(rotulox)
-plt.ylabel(rotuloy)
-plt.title(titulo)
-plt.xticks(rotation=-30)
-plt.plot(x, y)
-plt.grid()
-plt.show()
+	import matplotlib.pyplot as plt
+	plt.xlabel(rotulox)
+	plt.ylabel(rotuloy)
+	plt.title(titulo)
+	plt.xticks(rotation=-30)
+	plt.plot(x, y)
+	plt.grid()
+	plt.show()
 
 ##Pruebas de funcionamiento:
 representar_xxx_yyy([])
@@ -213,6 +213,13 @@ tabla_pre = cargar_dataframe_v0("2020_Accidentalidad.csv")
 print(tabla_pre)
 	  
 """E.2. Carga del dataframe, codificano rangos de edad y lesividad """
+##Modificando la lectura del dataframe para que los rangos de edad se conviertan en el intervalo correspondiente, que en el apartado de lesividad (cuyos campos en blanco se han traducido a NaN (Not A Number9 se ponga como entero tal que: 1 cuando hay lesividad y 0 cuando no se conoce la lesividad o no hay lesividad (casos codificados con un 0, un 77, un 14).
+
+def cargar_dataframe(archivo):
+	import pandas
+	dataframe = pandas.read_csv(archivo)  
+	return dataframe
+	  
 """E.3. Tabla de número de accidentes por rangos de edad """
 """E.4. Accidentes con consecuencias médicas """
 """E.5. Unión de dos tablas """

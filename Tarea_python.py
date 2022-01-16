@@ -68,7 +68,7 @@ def presentar_peraciones_basicas(linea):
     print(rango_edad(linea_partida[10])
 
 def extraer_datos(linea):
-    linea_partida = linea_partida.split(";")
+    linea_partida = linea.split(";")
     hora_redondeada = redondeo_hora(linea_partida[2])
     distrito = linea_partida[5]
     tiempo = linea_partida[7]

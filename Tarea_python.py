@@ -251,4 +251,4 @@ def
 #   --------------------------------------------------------------------------------------------------------          
 """COMENTARIOS DE EVALUACIÓN""" 
 #Ayuda recibida y fuentes utilizadas: Stackoverflow, W3SCHOOLS, python.org/doc, matplotlib.org, pythonchallenge, learnpython.org
-
+#scipy.org

@@ -1,4 +1,4 @@
-###### LIBRERÍA MATPLOTLIB #######
+###### LIBRERÍA MATPLOTLIB ####### COMPLETO
 """Librería de trazado de gráficos que genera figuras de diversos tipos y formatos con gran calidad """
 
 #### IMPORTACIÓN LIBRERÍA ####
@@ -7,7 +7,9 @@ plt.plot([array_y])
 
 #Función lineal
 plt.plot([1, 2, 3, 4]) #Creamos un gráfico cuyos valores de las coordenadas (verticales) serán 1, 2, 3, 4
-plt.ylabel('Etiqueta') #Añade una etiqueta en el eje de las y
+plt.ylabel('Etiquetay') #Añade una etiqueta en el eje de las y
+plt.xlabel('Etiquetax')
+plt.title('Etiqueta título')
 plt.show() #Muestra la figura definida
 
 #Si sólo le pasamos como argumento 1 array a la función plot, asume que es una secuencia de valores y (ordenadas), generando los valores x automáticamente.
@@ -67,21 +69,66 @@ plt.scatter(x, y, c=color, s=tamano, alpha = 0.5) #Se dibuja con scatter que es 
 #help(plt.scatter)
 
 """Generar varias gráficas simultáneas pero separadas visualmente"""
-#Para ello generamos subplots, por ejemplo, de un Array de 2*1 (dos filas, 1 columna cada una)
+#Para ello generamos subplots, por ejemplo, de un Array de 2*1 (dos filas, 1 columna cada una). Con los subpots generamos cada uno de ellos por separado y los podemos ver conjuntamente.
 plt.subplot()
 plt.plot()
-https://www.youtube.com/watch?v=MXDF0wVcWfA
 plt.subplot()
 plt.plot()
 
 
 """ANOTACIONES"""
+#Con el método annotate podemos introducir anotaciones para definir puntos concretos del gráfico, se puede modificar la flecha de la anotación y las características del texto asociado (posición, color...).
+
 plt.annotate('etiqueta_anotacion', xy=(X, Y)...)
 
 """Función de dos variables"""
+#Se puede representar en dos dimensiones un gráfico. En lugar de representarla mediante un gráfico tridimensional, se opta por representar en dos dimensiones en la que segunda variable solamente toma una colección pequeña de variables, y para cada uno de los valores se da un color diferente, aparecen una pequeña colección de funciones que puede mostrar cómo funciona esta variable.
+def f(z, t):
+    return np.exp(-z)*np.sin(t-z)
 
+z = np.linspace(0, 5, 3001)
+t = np.arrange(0, 40000, 4000)
+for tval in t:
+    plt.plot(z, f(z, tval
+plt.show()
 
+"""Diagrama de barras"""
+#Para crear un diagrama de barras se recurre al método bar. 
+plt.bar()
+                  
+"""Definiendo los ejes, modificadores de los ejes"""
+#Para customizar los ejes de abcisas y ordenadas de nuestros gráficos recurrimos a las funciones xticks e yticks
+plt.xticks()
+plt.yticks
 
+#Para especificar, por ejemplo, el nombre de los ticks:
+objects = ('Python', 'C++', 'Java')
+plt.xticks(objects)
+                  
+#Mejor aún: Como objects es un array de elementos, podemos obtener su longitud y determinar la longitud de las abcisas que tenemos a partir de ellas, es decir, el numero de ticks:
+y_pos = np.arrange(len(objects))
+plt.xticks(y_pos, objects)
+                  
+#Para un diagrama de barras horizontal, modificamos xticks por yticks:
+plt.yticks(y_pos, objects)                  
+
+                  
+"""Diagramas de barras conjuntos"""
+#Permiten comparar características dos grupos comparándolas en diferentes elementos.
+#Simplemente creamos dos plt.bar antes del plt.show
+n = 4
+grupo1 = (1, 2, 3, 4)
+grupo2 = (2, 3, 5, 1)
+
+fig, ax = plt.subplots()
+index = np.arrange(n_groups)
+ancho_barra = 0.35 
+grafico1 = plt.bar(index, grupo1, ancho_barra)
+grafico2 = plt.bar(index + ancho_barra, grupo2, ancho_barra) #Desplazamos el indice con el ancho de barra
+
+"""Añadir una leyenda"""
+plt.legend()
+                  
 """OTROS PLOTS DE LOS QUE DISPONE MATPLOTLIB"""
 ##Linea plot
 ##Multiple subplots in one figure
@@ -108,5 +155,6 @@ plt.annotate('etiqueta_anotacion', xy=(X, Y)...)
 ##XKCD-style sketch plots
 ##Subplot example
 
+www.matplotlib.org
 
 
